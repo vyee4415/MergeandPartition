@@ -1,28 +1,49 @@
 
+// Vivian Yee
+// 2/5/18
+// In place sorts lab 2
+
 public class ArrayMethods2 {
 	
-	public static String[ ] merge(String[] list1, String[] list2) {
+	public static void main(String[] args) {
+		int[] test1 = {1, 4, 4, 5, 2, 4, 3, 17, 0};
+		String[] test2 = {"huh","wassup","lmao"};
+		String[] test3 = {"zebra", "tortilla", "abba", "foo", "bar", "aba"};
 		
+		long start = System.nanoTime();
+		merge(test3, test2);
+		long end = System.nanoTime();
+		long time = end - start;
+		System.out.println("Test1 took: " + time + " nanoseconds");
+		System.out.println(merge(test3, test2));
+		System.out.println("");
+		
+		start = System.nanoTime();
+		partition(test1);
+		end = System.nanoTime();
+		time = end - start;
+		System.out.println("Test3 took: " + time + " nanoseconds");
+		System.out.println(partition(test1));
 	}
+	
+	public static String[] merge(String[] list1, String[] list2) {
+		return list1;
+	}
+	
 	public static int partition(int[] list) {
-		int x = 0, y = list.length;
+		int x = 0, y = list.length-1;
 		while(x != y) {
 			for(int i = 0; i < list.length; i++) {
 				if(list[x]>list[y]) {
-					
+					SwapInt(list,x,y);
 				}
 			}
 		}
+		return x;
 	}
 	
 	public static void SwapInt(int[] arr, int index, int index2) {
 		int x = arr[index];
-		arr[index] = arr[index2];
-		arr[index2] = x;
-	}
-	
-	public static void SwapDouble(double[] arr, int index, int index2) {
-		double x = arr[index];
 		arr[index] = arr[index2];
 		arr[index2] = x;
 	}
