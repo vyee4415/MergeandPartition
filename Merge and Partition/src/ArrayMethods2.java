@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 // Vivian Yee
 // 2/5/18
@@ -6,7 +7,7 @@
 public class ArrayMethods2 {
 	
 	public static void main(String[] args) {
-		int[] test1 = {1, 4, 4, 5, 2, 4, 3, 17, 0};
+		int[] test1 = {1, 5, 2, 4, 3, 17, 0};
 		String[] test2 = {"huh","wassup","lmao"};
 		String[] test3 = {"zebra", "tortilla", "abba", "foo", "bar", "aba"};
 		
@@ -15,7 +16,7 @@ public class ArrayMethods2 {
 		long end = System.nanoTime();
 		long time = end - start;
 		System.out.println("Test1 took: " + time + " nanoseconds");
-		System.out.println(merge(test3, test2));
+		System.out.println(Arrays.toString(merge(test3, test2)));
 		System.out.println("");
 		
 		start = System.nanoTime();
@@ -27,16 +28,26 @@ public class ArrayMethods2 {
 	}
 	
 	public static String[] merge(String[] list1, String[] list2) {
-		return list1;
+		String[] newArr = {};
+		
 	}
 	
 	public static int partition(int[] list) {
-		int x = 0, y = list.length-1;
+		int x = 0;
+		int y = list.length-1;
 		while(x != y) {
-			for(int i = 0; i < list.length; i++) {
-				if(list[x]>list[y]) {
-					SwapInt(list,x,y);
-				}
+			if((list[x]>list[y])&&(x<y)) {
+				SwapInt(list,x,y);
+				x = y;
+				y = x+1;
+			}else if((list[x]<list[y])&&(x>y)){
+				SwapInt(list,x,y);
+				x = y;
+				y = x-1;
+			}else if(x<y){
+				y--;
+			}else if(x>y){
+				y++;
 			}
 		}
 		return x;
