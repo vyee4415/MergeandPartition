@@ -8,8 +8,8 @@ public class ArrayMethods2 {
 	
 	public static void main(String[] args) {
 		int[] test1 = {1, 5, 2, 4, 3, 17, 0};
-		String[] test2 = {"huh","wassup","lmao"};
-		String[] test3 = {"zebra", "tortilla", "abba", "foo", "bar", "aba"};
+		String[] test2 = {"apple","banana","kiwi"};
+		String[] test3 = {"cat", "dog", "wat"};
 		
 		long start = System.nanoTime();
 		merge(test3, test2);
@@ -28,8 +28,22 @@ public class ArrayMethods2 {
 	}
 	
 	public static String[] merge(String[] list1, String[] list2) {
-		String[] newArr = {};
-		
+		String[] newArr = new String[list1.length+list2.length];
+		int x = 0, y = 0;
+		for(int i = 0; i < list1.length + list2.length; i++) {
+			if(list1[x].compareTo(list2[y])>0) {
+				newArr[i] = list2[y];
+				if(y != list2.length-1) {
+					y++;
+				}
+			}else if(list2[y].compareTo(list1[x])>0) {
+				newArr[i] = list1[x];
+				if(x != list1.length-1) {
+					x++;
+				}
+			}
+		}
+		return newArr;
 	}
 	
 	public static int partition(int[] list) {
