@@ -7,9 +7,9 @@ import java.util.Arrays;
 public class ArrayMethods2 {
 	
 	public static void main(String[] args) {
-		int[] test1 = {3,4,2,7,12,22,0,1};
-		String[] test2 = {"apple","cucumber","microsoft","zorro"};
-		String[] test3 = {"banana", "cherry", "mahogany","oreos","pinata"};
+		int[] test1 = {3, 4, 2, 7, 12, 22, 0, 1};
+		String[] test2 = {"apple", "durian", "pineapple", "watermelon"};
+		String[] test3 = {"banana", "cherry", "grape", "mango", "starfruit"};
 		
 		long start = System.nanoTime();
 		String[] mergeResult = merge(test3, test2);
